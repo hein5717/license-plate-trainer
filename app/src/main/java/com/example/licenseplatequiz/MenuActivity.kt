@@ -3,21 +3,24 @@ package com.example.licenseplatequiz
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_menu.guessGameButton
-import kotlinx.android.synthetic.main.activity_menu.otherGameButton
+import com.example.licenseplatequiz.databinding.ActivityMenuBinding
 
 
 class MenuActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMenuBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu)
+        binding = ActivityMenuBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        guessGameButton.setOnClickListener {
+        binding.guessGameButton.setOnClickListener {
             startActivity(Intent(this, GuessGameActivity::class.java))
         }
 
         // Add click listener for other game button
-        otherGameButton.setOnClickListener {
+        binding.otherGameButton.setOnClickListener {
             // Start other game activity
             startActivity(Intent(this, OtherGameActivity::class.java))
         }

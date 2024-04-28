@@ -5,22 +5,23 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_guess_game.guessEditText
-import kotlinx.android.synthetic.main.activity_guess_game.randomNumbersTextView
-import kotlinx.android.synthetic.main.activity_guess_game.submitGuessButton
+import com.example.licenseplatequiz.databinding.ActivityGuessGameBinding
 import kotlin.random.Random
 
 
 
 class GuessGameActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityGuessGameBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_guess_game)
+        binding = ActivityGuessGameBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Generate random numbers and display them
         val randomNumbers = generateRandomNumbers()
-        randomNumbersTextView.text = randomNumbers
+        binding.randomNumbersTextView.text = randomNumbers
 
         toggleVisibility(View.INVISIBLE)
 
@@ -32,9 +33,9 @@ class GuessGameActivity : AppCompatActivity() {
         }, 3000)
 
         // TODO: Implement logic for checking user's guess
-        submitGuessButton.setOnClickListener {
+        binding.submitGuessButton.setOnClickListener {
             // Get the user's guess from the EditText
-            val userGuess = guessEditText.text.toString()
+            val userGuess = binding.guessEditText.text.toString()
             // Compare the user's guess with the original numbers
             // Display result to the user
         }
@@ -47,11 +48,11 @@ class GuessGameActivity : AppCompatActivity() {
 
     private fun blurNumbers() {
         // Blur or hide the numbers to prevent user from seeing them
-        randomNumbersTextView.text = "Blurred"
+        binding.randomNumbersTextView.text = "Blurred"
     }
 
     private fun toggleVisibility(visibility: Int) {
-        guessEditText.visibility = visibility
-        submitGuessButton.visibility = visibility
+        binding.guessEditText.visibility = visibility
+        binding.submitGuessButton.visibility = visibility
     }
 }
