@@ -19,6 +19,7 @@ class MenuActivity : AppCompatActivity() {
         // Add click listener for other game button
         otherGameButton.setOnClickListener {
             // Start other game activity
+            startActivity(Intent(this, OtherGameActivity::class.java))
         }
     }
 }

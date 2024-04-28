@@ -22,12 +22,13 @@ class GuessGameActivity : AppCompatActivity() {
         val randomNumbers = generateRandomNumbers()
         randomNumbersTextView.text = randomNumbers
 
-        guessEditText.visibility = View.INVISIBLE
-        submitGuessButton.visibility = View.INVISIBLE
+        toggleVisibility(View.INVISIBLE)
 
         // Blur the numbers after 3 seconds
         Handler(Looper.getMainLooper()).postDelayed({
             blurNumbers()
+            toggleVisibility(View.VISIBLE)
+
         }, 3000)
 
         // TODO: Implement logic for checking user's guess
@@ -47,5 +48,10 @@ class GuessGameActivity : AppCompatActivity() {
     private fun blurNumbers() {
         // Blur or hide the numbers to prevent user from seeing them
         randomNumbersTextView.text = "Blurred"
+    }
+
+    private fun toggleVisibility(visibility: Int) {
+        guessEditText.visibility = visibility
+        submitGuessButton.visibility = visibility
     }
 }
