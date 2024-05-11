@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.licenseplatequiz.MenuFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_menuFragment_to_guessGameFragment"
+            app:destination="@+id/menuFragment"
+            app:launchSingleTop="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/guessGameFragment"
+        android:name="com.example.licenseplatequiz.GuessGameFragment"
+        android:label="Guess Game" />
+
+    <fragment
+        android:id="@+id/otherGameFragment"
+        android:name="com.example.licenseplatequiz.OtherGameFragment"
+        android:label="Guess Game" />
+
+</navigation>

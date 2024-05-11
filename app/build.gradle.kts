@@ -36,6 +36,7 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    namespace = "com.example.licenseplatequiz"
 }
 
 dependencies {
