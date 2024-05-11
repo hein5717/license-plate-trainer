@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.example.licenseplatequiz.MenuFragment"
+        android:name="com.example.licenseplatequiz.gameFragments.MenuFragment"
         android:label="Home">
         <action
             android:id="@+id/action_menuFragment_to_guessGameFragment"
@@ -16,12 +16,12 @@
 
     <fragment
         android:id="@+id/guessGameFragment"
-        android:name="com.example.licenseplatequiz.GuessGameFragment"
+        android:name="com.example.licenseplatequiz.gameFragments.GuessGameFragment"
         android:label="Guess Game" />
 
     <fragment
         android:id="@+id/otherGameFragment"
-        android:name="com.example.licenseplatequiz.OtherGameFragment"
+        android:name="com.example.licenseplatequiz.gameFragments.OtherGameFragment"
         android:label="Guess Game" />
 
 </navigation>

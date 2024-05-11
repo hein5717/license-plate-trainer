@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GuessGameActivity">
+    tools:context=".gameFragments.GuessGameFragment">
 
     <TextView
         android:id="@+id/randomNumbersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_centerVertical="true"/>
 
     <EditText
         android:id="@+id/guessEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/randomNumbersTextView"
+        android:layout_below="@+id/randomNumbersTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:hint="Enter your guess"
-        android:inputType="number"/>
+        android:inputType="number" />
 
     <Button
         android:id="@+id/submitGuessButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/guessEditText"
+        android:layout_below="@+id/guessEditText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Submit"/>
+        android:text="Submit" />
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content" />-->
-</FrameLayout>
+</RelativeLayout>

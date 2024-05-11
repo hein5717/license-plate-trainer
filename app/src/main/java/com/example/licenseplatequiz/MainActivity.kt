@@ -2,6 +2,9 @@ package com.example.licenseplatequiz
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -21,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        toggleImmersiveMode()
 
         val bottomNavigationView =
             findViewById<BottomNavigationView>(binding.bottomNavigationView.id)
@@ -44,5 +49,17 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    fun toggleImmersiveMode() {
+        if (supportActionBar != null) {
+            supportActionBar?.hide();
+        }
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(
+            window,
+            binding.root
+        ).hide(WindowInsetsCompat.Type.systemBars())
     }
 }

@@ -1,4 +1,4 @@
-package com.example.licenseplatequiz
+package com.example.licenseplatequiz.gameFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
