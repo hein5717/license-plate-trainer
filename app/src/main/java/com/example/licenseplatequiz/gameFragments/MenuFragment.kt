@@ -25,12 +25,18 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val args = Bundle()
+
         binding.guessGameButton.setOnClickListener {
-            findNavController().navigate(R.id.guessGameFragment)
+            args.putInt("selectedGame", R.id.guessGameFragment)
+            findNavController().navigate(R.id.configureGameFragment, args)
+
         }
 
         binding.otherGameButton.setOnClickListener {
-            findNavController().navigate(R.id.otherGameFragment)
+            args.putInt("selectedGame", R.id.otherGameFragment)
+            findNavController().navigate(R.id.configureGameFragment, args)
+
         }
     }
 }

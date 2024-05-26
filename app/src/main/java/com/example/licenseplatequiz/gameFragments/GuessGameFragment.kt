@@ -15,8 +15,11 @@ import kotlin.random.Random
 
 class GuessGameFragment : Fragment() {
 
-    private var counter: Int = 0
-    private var numGames: Int = 1
+    private var numberOfGames: Int = 1
+    private var timeToGuess: Int = 1
+    private var numberOfDigits: Int = 1
+
+    private var gamesPlayedCount: Int = 0
     private var correctCount: Int = 0
     private var incorrectCount: Int = 0
 
@@ -35,12 +38,16 @@ class GuessGameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        numberOfGames = requireArguments().getInt("numberOfGames")
+        timeToGuess = requireArguments().getInt("timeToGuess")
+        numberOfDigits = requireArguments().getInt("numberOfDigits")
+
         initGame()
 
         // TODO: Implement logic for checking user's guess
         binding.submitGuessButton.setOnClickListener {
-            counter += 1
-            if (counter < numGames) {
+            gamesPlayedCount += 1
+            if (gamesPlayedCount < numberOfGames) {
                 // Get the user's guess from the EditText
                 val userGuess = binding.guessEditText.text.toString()
                 // Compare the user's guess with the original numbers
@@ -65,7 +72,7 @@ class GuessGameFragment : Fragment() {
                 binding.resultTextView.text = "Game Over"
 
                 val args = Bundle()
-                args.putInt("totalGamesPlayed", numGames)
+                args.putInt("totalGamesPlayed", numberOfGames)
                 args.putInt("correctCount", correctCount)
                 args.putInt("incorrectCount", incorrectCount)
 
@@ -87,12 +94,12 @@ class GuessGameFragment : Fragment() {
             toggleNumberVisibility(mask = true)
             toggleGameVisibility(View.VISIBLE)
 
-        }, 3000)
+        }, (timeToGuess*1000).toLong())
     }
 
     private fun generateRandomNumbers(): String {
         // Generate a random string of 7 digits
-        return (1..7).map { Random.nextInt(0, 10) }.joinToString("")
+        return (1..numberOfDigits).map { Random.nextInt(0, 10) }.joinToString("")
     }
 
     private fun toggleNumberVisibility(mask: Boolean) {

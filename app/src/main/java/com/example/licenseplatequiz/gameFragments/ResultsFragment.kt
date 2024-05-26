@@ -11,8 +11,6 @@ class ResultsFragment : Fragment() {
 
     private lateinit var binding: ActivityResultsBinding
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

@@ -17,16 +17,24 @@
     <fragment
         android:id="@+id/guessGameFragment"
         android:name="com.example.licenseplatequiz.gameFragments.GuessGameFragment"
-        android:label="Guess Game" />
+        android:label="Guess Game" >
+    </fragment>
 
     <fragment
         android:id="@+id/otherGameFragment"
         android:name="com.example.licenseplatequiz.gameFragments.OtherGameFragment"
-        android:label="Guess Game" />
+        android:label="Other Game" >
+    </fragment>
 
     <fragment
         android:id="@+id/resultsFragment"
         android:name="com.example.licenseplatequiz.gameFragments.ResultsFragment"
         android:label="Results Screen" />
+
+    <fragment
+        android:id="@+id/configureGameFragment"
+        android:name="com.example.licenseplatequiz.gameFragments.ConfigureGameFragment"
+        android:label="Configure Game" >
+    </fragment>
 
 </navigation>
