@@ -24,4 +24,9 @@
         android:name="com.example.licenseplatequiz.gameFragments.OtherGameFragment"
         android:label="Guess Game" />
 
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.licenseplatequiz.gameFragments.ResultsFragment"
+        android:label="Results Screen" />
+
 </navigation>

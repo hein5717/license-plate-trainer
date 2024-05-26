@@ -17,7 +17,7 @@ class MenuFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ActivityMenuBinding.inflate(inflater, container, false)
         return binding.root
     }
