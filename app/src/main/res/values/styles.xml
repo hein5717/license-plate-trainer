@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- res/values/styles.xml -->
+    <style name="CleanNumberPicker">
+        <item name="android:background">@drawable/number_picker_background</item>
+        <item name="android:textColor">#FF000000</item>
+        <item name="colorControlNormal">#FF000000</item> <!-- Divider color -->
+        <!-- Other styling attributes can go here -->
+    </style>
+
+</resources>
