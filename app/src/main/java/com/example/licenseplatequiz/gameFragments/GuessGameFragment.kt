@@ -20,7 +20,6 @@ class GuessGameFragment : Fragment() {
     private var numberOfDigits: Int = 1
 
     private var gamesPlayedCount: Int = 0
-    private var correctCount: Int = 0
     private var incorrectCount: Int = 0
 
     private lateinit var binding: ActivityGuessGameBinding
@@ -51,15 +50,7 @@ class GuessGameFragment : Fragment() {
             if (gamesPlayedCount < numberOfGames) {
                 // Get the user's guess from the EditText
                 // Compare the user's guess with the original numbers
-                if (userGuess == randomNumbers) {
-                    // Display a success message to the user
-                    binding.resultTextView.text = "Correct!"
-                    correctCount += 1
-                } else {
-                    // Display an error message to the user
-                    binding.resultTextView.text = "Incorrect"
-                    incorrectCount += 1
-                }
+                processResults(userGuess)
 
                 toggleGameVisibility(View.INVISIBLE)
                 toggleNumberVisibility(mask = false)
@@ -70,7 +61,7 @@ class GuessGameFragment : Fragment() {
                     initGame()
                 }, 3000)
             } else {
-                binding.resultTextView.text = if (userGuess == randomNumbers) "Correct!" else "Incorrect"
+                processResults(userGuess)
                 toggleGameVisibility(View.INVISIBLE)
                 toggleNumberVisibility(mask = false)
                 toggleResultVisibility(View.VISIBLE)
@@ -83,13 +74,24 @@ class GuessGameFragment : Fragment() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         val args = Bundle()
                         args.putInt("totalGamesPlayed", numberOfGames)
-                        args.putInt("correctCount", correctCount)
+                        args.putInt("correctCount", numberOfGames - incorrectCount)
                         args.putInt("incorrectCount", incorrectCount)
 
                         findNavController().navigate(R.id.resultsFragment, args)
                     }, 3000)
                 }, 3000)
             }
+        }
+    }
+
+    fun processResults(userGuess: String) {
+        if (userGuess == randomNumbers) {
+            // Display a success message to the user
+            binding.resultTextView.text = "Correct!"
+        } else {
+            // Display an error message to the user
+            binding.resultTextView.text = "Incorrect"
+            incorrectCount += 1
         }
     }
 
