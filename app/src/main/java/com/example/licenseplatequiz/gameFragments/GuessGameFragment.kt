@@ -47,9 +47,9 @@ class GuessGameFragment : Fragment() {
         // TODO: Implement logic for checking user's guess
         binding.submitGuessButton.setOnClickListener {
             gamesPlayedCount += 1
+            val userGuess = binding.guessEditText.text.toString()
             if (gamesPlayedCount < numberOfGames) {
                 // Get the user's guess from the EditText
-                val userGuess = binding.guessEditText.text.toString()
                 // Compare the user's guess with the original numbers
                 if (userGuess == randomNumbers) {
                     // Display a success message to the user
@@ -66,17 +66,29 @@ class GuessGameFragment : Fragment() {
                 toggleResultVisibility(View.VISIBLE)
 
                 Handler(Looper.getMainLooper()).postDelayed({
+                    binding.guessEditText.text.clear()
                     initGame()
                 }, 3000)
             } else {
-                binding.resultTextView.text = "Game Over"
+                binding.resultTextView.text = if (userGuess == randomNumbers) "Correct!" else "Incorrect"
+                toggleGameVisibility(View.INVISIBLE)
+                toggleNumberVisibility(mask = false)
+                toggleResultVisibility(View.VISIBLE)
 
-                val args = Bundle()
-                args.putInt("totalGamesPlayed", numberOfGames)
-                args.putInt("correctCount", correctCount)
-                args.putInt("incorrectCount", incorrectCount)
 
-                findNavController().navigate(R.id.resultsFragment, args)
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.resultTextView.text = "Game Over"
+                    binding.randomNumbersTextView.visibility = View.INVISIBLE
+
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        val args = Bundle()
+                        args.putInt("totalGamesPlayed", numberOfGames)
+                        args.putInt("correctCount", correctCount)
+                        args.putInt("incorrectCount", incorrectCount)
+
+                        findNavController().navigate(R.id.resultsFragment, args)
+                    }, 3000)
+                }, 3000)
             }
         }
     }

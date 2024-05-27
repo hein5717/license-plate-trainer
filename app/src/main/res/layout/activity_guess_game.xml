@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,8 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="56dp"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:text="DeleteME"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guessEditText"
+        app:layout_constraintEnd_toEndOf="@+id/guessEditText"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/guessEditText" />
 
     <EditText
         android:id="@+id/guessEditText"
@@ -19,29 +27,46 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/randomNumbersTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:hint="Enter your guess"
-        android:inputType="number"/>
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/submitGuessButton"
+        app:layout_constraintEnd_toEndOf="@+id/submitGuessButton"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/submitGuessButton" />
 
     <Button
         android:id="@+id/submitGuessButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="139dp"
+        android:layout_height="59dp"
         android:layout_below="@+id/guessEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="Submit"/>
+        android:layout_marginBottom="84dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/resultTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correct!"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
         android:layout_below="@+id/submitGuessButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
 
-        />
+        android:includeFontPadding="false"
+        android:text="Correct!"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/randomNumbersTextView"
+        app:layout_constraintEnd_toEndOf="@+id/randomNumbersTextView"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@+id/randomNumbersTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

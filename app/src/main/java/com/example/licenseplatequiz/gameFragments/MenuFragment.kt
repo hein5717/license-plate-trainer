@@ -30,13 +30,11 @@ class MenuFragment : Fragment() {
         binding.guessGameButton.setOnClickListener {
             args.putInt("selectedGame", R.id.guessGameFragment)
             findNavController().navigate(R.id.configureGameFragment, args)
-
         }
 
         binding.otherGameButton.setOnClickListener {
             args.putInt("selectedGame", R.id.otherGameFragment)
             findNavController().navigate(R.id.configureGameFragment, args)
-
         }
     }
 }
