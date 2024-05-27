@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".gameFragments.ConfigureGameFragment">
 
+    <TextView
+        android:id="@+id/charsetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:text="Character Combo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
@@ -31,12 +40,21 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="12dp"
-        android:text="Number of Digits"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="Number of Characters"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/number_digits"
         app:layout_constraintEnd_toStartOf="@+id/number_digits" />
+
+    <Spinner
+        android:id="@+id/charset_selection"
+        style="@style/CleanNumberPicker"
+        android:layout_width="80dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/number_games"
+        app:layout_constraintStart_toStartOf="@+id/number_games" />
 
     <NumberPicker
         android:id="@+id/number_games"
@@ -61,7 +79,7 @@
         style="@style/CleanNumberPicker"
         android:layout_width="59dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/startGameButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.813"

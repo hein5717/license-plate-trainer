@@ -7,5 +7,11 @@
         <item name="colorControlNormal">#FF000000</item> <!-- Divider color -->
         <!-- Other styling attributes can go here -->
     </style>
+    <style name="CleanSpinnerPicker">
+        <item name="android:background">@drawable/number_picker_background</item>
+        <item name="android:textColor">#FF000000</item>
+        <item name="colorControlNormal">#FF000000</item> <!-- Divider color -->
+        <!-- Other styling attributes can go here -->
+    </style>
 
 </resources>
