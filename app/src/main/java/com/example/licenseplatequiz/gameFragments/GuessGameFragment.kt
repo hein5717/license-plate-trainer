@@ -118,7 +118,7 @@ class GuessGameFragment : Fragment() {
 
     private fun toggleNumberVisibility(mask: Boolean) {
         if (mask) {
-            binding.randomNumbersTextView.text = "Blurred"
+            binding.randomNumbersTextView.text = "Number Hidden"
         } else {
             binding.randomNumbersTextView.text = randomNumbers
         }

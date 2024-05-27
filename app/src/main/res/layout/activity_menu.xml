@@ -9,12 +9,13 @@
 
     <Button
         android:id="@+id/otherGameButton"
-        android:layout_width="160dp"
-        android:layout_height="60dp"
+        android:layout_width="260dp"
+        android:layout_height="80dp"
         android:layout_below="@id/guessGameButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
         android:text="Hello World Game"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guessGameButton"
         app:layout_constraintEnd_toEndOf="@+id/guessGameButton"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,11 +23,12 @@
 
     <Button
         android:id="@+id/guessGameButton"
-        android:layout_width="160dp"
-        android:layout_height="60dp"
+        android:layout_width="260dp"
+        android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="76dp"
         android:text="Guessing Game"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -32,7 +32,7 @@ class ConfigureGameFragment: Fragment() {
         binding.numberTime.maxValue = 60
 
         binding.numberDigits.minValue = 1
-        binding.numberDigits.maxValue = 30
+        binding.numberDigits.maxValue = 20
 
         binding.startGameButton.setOnClickListener {
             var gameSettings = Bundle()

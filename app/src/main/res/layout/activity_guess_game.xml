@@ -15,7 +15,7 @@
         android:layout_marginBottom="28dp"
         android:text="DeleteME"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/guessEditText"
         app:layout_constraintEnd_toEndOf="@+id/guessEditText"
         app:layout_constraintHorizontal_bias="0.487"
@@ -27,13 +27,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/randomNumbersTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="80dp"
         android:hint="Enter your guess"
         android:inputType="number"
         android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/submitGuessButton"
         app:layout_constraintEnd_toEndOf="@+id/submitGuessButton"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/submitGuessButton" />
 
     <Button
@@ -42,11 +43,12 @@
         android:layout_height="59dp"
         android:layout_below="@+id/guessEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="136dp"
         android:text="Submit"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -60,13 +62,12 @@
         android:includeFontPadding="false"
         android:text="Correct!"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/randomNumbersTextView"
         app:layout_constraintEnd_toEndOf="@+id/randomNumbersTextView"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="@+id/randomNumbersTextView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946" />
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
