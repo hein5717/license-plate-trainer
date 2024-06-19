@@ -40,11 +40,9 @@ class ConfigureGameFragment: Fragment() {
         binding.numberDigits.minValue = 1
         binding.numberDigits.maxValue = 20
 
+        //TODO: Clean this up. Make it DRY
         configureCharsetSpinner()
         configureMirroredSpinner()
-
-
-
 
         binding.startGameButton.setOnClickListener {
             var gameSettings = Bundle()
@@ -55,9 +53,7 @@ class ConfigureGameFragment: Fragment() {
             gameSettings.putInt("numberOfDigits", binding.numberDigits.value)
 
             findNavController().navigate(requireArguments().getInt("selectedGame"), gameSettings)
-
         }
-
     }
 
     fun configureCharsetSpinner() {
@@ -72,7 +68,6 @@ class ConfigureGameFragment: Fragment() {
                 val selectedOption = textOptions[position]
                 // Handle selected option
                 charsetSelection = selectedOption
-
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -94,7 +89,6 @@ class ConfigureGameFragment: Fragment() {
                 val selectedOption = textOptions[position]
                 // Handle selected option
                 mirroredSelection = selectedOption == "Yes"
-
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
