@@ -14,7 +14,7 @@ import com.example.licenseplatequiz.databinding.ActivityGuessGameBinding
 
 
 class GuessGameFragment : Fragment() {
-
+    private var mirrorText: Boolean = false
     private var charsetSelection: String = "both"
 
     private var numberOfGames: Int = 1
@@ -100,6 +100,7 @@ class GuessGameFragment : Fragment() {
     }
 
     fun initGame() {
+        mirrorText = requireArguments().getBoolean("mirroredSelection")
         charsetSelection = requireArguments().getString("charsetSelection")!!
         numberOfGames = requireArguments().getInt("numberOfGames")
         timeToGuess = requireArguments().getInt("timeToGuess")
@@ -109,7 +110,7 @@ class GuessGameFragment : Fragment() {
         setInputType(charsetSelection)
 
         randomNumbers = generateRandomAlphaNumericString(charsetSelection, numberOfDigits)
-        binding.randomNumbersTextView.text = randomNumbers
+        binding.randomNumbersTextView.setText(randomNumbers, mirror = mirrorText)
 
         toggleResultVisibility(View.INVISIBLE)
         toggleGameVisibility(View.INVISIBLE)
@@ -147,9 +148,9 @@ class GuessGameFragment : Fragment() {
 
     private fun toggleNumberVisibility(mask: Boolean) {
         if (mask) {
-            binding.randomNumbersTextView.text = "Number Hidden"
+            binding.randomNumbersTextView.setText("Number Hidden")
         } else {
-            binding.randomNumbersTextView.text = randomNumbers
+            binding.randomNumbersTextView.setText(randomNumbers)
         }
     }
 
