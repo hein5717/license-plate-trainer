@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".gameFragments.GuessGameFragment">
 
-    <TextView
+    <com.example.licenseplatequiz.view.MirroredView
         android:id="@+id/randomNumbersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -16,6 +16,7 @@ class ConfigureGameFragment: Fragment() {
     private lateinit var binding: ActivityConfigureGameBinding
 
     private var charsetSelection = "both"
+    private var mirroredSelection: Boolean = false
 
 
     override fun onCreateView(
@@ -39,7 +40,28 @@ class ConfigureGameFragment: Fragment() {
         binding.numberDigits.minValue = 1
         binding.numberDigits.maxValue = 20
 
-        // Spinner configuration
+        configureCharsetSpinner()
+        configureMirroredSpinner()
+
+
+
+
+        binding.startGameButton.setOnClickListener {
+            var gameSettings = Bundle()
+            gameSettings.putBoolean("mirroredSelection", mirroredSelection)
+            gameSettings.putString("charsetSelection", charsetSelection)
+            gameSettings.putInt("numberOfGames", binding.numberGames.value)
+            gameSettings.putInt("timeToGuess", binding.numberTime.value)
+            gameSettings.putInt("numberOfDigits", binding.numberDigits.value)
+
+            findNavController().navigate(requireArguments().getInt("selectedGame"), gameSettings)
+
+        }
+
+    }
+
+    fun configureCharsetSpinner() {
+        // Clean this up and add another spinner for mirrored
         val textOptions = arrayOf("both", "letters", "numbers")
         val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, textOptions)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -58,18 +80,27 @@ class ConfigureGameFragment: Fragment() {
                 charsetSelection = "both"
             }
         }
+    }
 
-        binding.startGameButton.setOnClickListener {
-            var gameSettings = Bundle()
-            gameSettings.putString("charsetSelection", charsetSelection)
-            gameSettings.putInt("numberOfGames", binding.numberGames.value)
-            gameSettings.putInt("timeToGuess", binding.numberTime.value)
-            gameSettings.putInt("numberOfDigits", binding.numberDigits.value)
+    fun configureMirroredSpinner() {
+        // Clean this up and add another spinner for mirrored
+        val textOptions = arrayOf("No", "Yes")
+        val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, textOptions)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.mirrorTextSelection.adapter = adapter
 
-            findNavController().navigate(requireArguments().getInt("selectedGame"), gameSettings)
+        binding.mirrorTextSelection.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedOption = textOptions[position]
+                // Handle selected option
+                mirroredSelection = selectedOption == "Yes"
 
+            }
 
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Handle case where no option is selected if needed
+                mirroredSelection = false
+            }
         }
-
     }
 }

@@ -7,6 +7,16 @@
     tools:context=".gameFragments.ConfigureGameFragment">
 
     <TextView
+        android:id="@+id/mirrorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:text="Mirror Text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/charsetTextView"
+        app:layout_constraintEnd_toEndOf="@+id/charsetTextView" />
+
+    <TextView
         android:id="@+id/charsetTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,6 +56,15 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/number_digits"
         app:layout_constraintEnd_toStartOf="@+id/number_digits" />
+
+    <Spinner
+        android:id="@+id/mirror_text_selection"
+        style="@style/CleanNumberPicker"
+        android:layout_width="80dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/charset_selection"
+        app:layout_constraintStart_toStartOf="@+id/charset_selection" />
 
     <Spinner
         android:id="@+id/charset_selection"
