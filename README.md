@@ -22,4 +22,4 @@ Longer term goals:
 
 Check out the app demo!
 
-![App Demo](readme_media/GamePlayed.gif)
+![App Demo](readme_media/GamePlayedHQ.gif)
