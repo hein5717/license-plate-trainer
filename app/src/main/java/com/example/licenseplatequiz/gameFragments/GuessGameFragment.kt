@@ -3,6 +3,7 @@ package com.example.licenseplatequiz.gameFragments
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,13 +36,14 @@ class GuessGameFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Your code here
+        initGame()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        charsetSelection = requireArguments().getString("charsetSelection")!!
-        numberOfGames = requireArguments().getInt("numberOfGames")
-        timeToGuess = requireArguments().getInt("timeToGuess")
-        numberOfDigits = requireArguments().getInt("numberOfDigits")
 
         initGame()
 
@@ -98,7 +100,14 @@ class GuessGameFragment : Fragment() {
     }
 
     fun initGame() {
+        charsetSelection = requireArguments().getString("charsetSelection")!!
+        numberOfGames = requireArguments().getInt("numberOfGames")
+        timeToGuess = requireArguments().getInt("timeToGuess")
+        numberOfDigits = requireArguments().getInt("numberOfDigits")
+
         // Generate random numbers and display them
+        setInputType(charsetSelection)
+
         randomNumbers = generateRandomAlphaNumericString(charsetSelection, numberOfDigits)
         binding.randomNumbersTextView.text = randomNumbers
 
@@ -110,7 +119,7 @@ class GuessGameFragment : Fragment() {
             toggleNumberVisibility(mask = true)
             toggleGameVisibility(View.VISIBLE)
 
-        }, (timeToGuess*1000).toLong())
+        }, (timeToGuess * 1000).toLong())
     }
 
     private fun generateRandomAlphaNumericString(selection: String, numberOfDigits: Int): String {
@@ -127,6 +136,12 @@ class GuessGameFragment : Fragment() {
 
         // Generate the random string with the specified length
         return List(numberOfDigits) { charset.random() }.joinToString("")
+    }
+
+    private fun setInputType(selection: String) {
+        binding.guessEditText.inputType =
+            if (selection == "numbers") InputType.TYPE_CLASS_NUMBER
+            else InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
     }
 
 
